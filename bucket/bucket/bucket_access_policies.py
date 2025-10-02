@@ -17,14 +17,14 @@ from typing import Any
 
 
 READ_ACCESSIBLE_PRODUCTION_RESOURCES = [
-    'arn:aws:s3:::igvf-blobs',
-    'arn:aws:s3:::igvf-blobs/*',
-    'arn:aws:s3:::igvf-files',
-    'arn:aws:s3:::igvf-files/*',
-    'arn:aws:s3:::igvf-public',
-    'arn:aws:s3:::igvf-public/*',
-    'arn:aws:s3:::igvf-private',
-    'arn:aws:s3:::igvf-private/*',
+    'arn:aws:s3:::ascella-blobs',
+    'arn:aws:s3:::ascella-blobs/*',
+    'arn:aws:s3:::ascella-files',
+    'arn:aws:s3:::ascella-files/*',
+    'arn:aws:s3:::ascella-public',
+    'arn:aws:s3:::ascella-public/*',
+    'arn:aws:s3:::ascella-private',
+    'arn:aws:s3:::ascella-private/*',
 ]
 
 
@@ -41,7 +41,7 @@ class BucketAccessPolicies(Stack):
 
         self.bucket_storage = bucket_storage
 
-        self.download_igvf_files_policy_statement = PolicyStatement(
+        self.download_ascella_files_policy_statement = PolicyStatement(
             sid='AllowReadFromFilesAndBlobsBuckets',
             resources=[
                 self.bucket_storage.files_bucket.bucket_arn,
@@ -62,7 +62,7 @@ class BucketAccessPolicies(Stack):
             ]
         )
 
-        self.upload_igvf_files_policy_statement = PolicyStatement(
+        self.upload_ascella_files_policy_statement = PolicyStatement(
             sid='AllowReadAndWriteToFilesAndBlobsBuckets',
             resources=[
                 self.bucket_storage.files_bucket.bucket_arn,
@@ -91,48 +91,48 @@ class BucketAccessPolicies(Stack):
             ]
         )
 
-        self.download_igvf_files_policy = ManagedPolicy(
+        self.download_ascella_files_policy = ManagedPolicy(
             self,
-            'DownloadIgvfFilesPolicy',
-            managed_policy_name='download-igvf-files',
+            'DownloadAscellaFilesPolicy',
+            managed_policy_name='download-ascella-files',
             statements=[
-                self.download_igvf_files_policy_statement,
+                self.download_ascella_files_policy_statement,
             ],
         )
 
-        self.upload_igvf_files_policy = ManagedPolicy(
+        self.upload_ascella_files_policy = ManagedPolicy(
             self,
-            'UploadIgvfFilesPolicy',
-            managed_policy_name='upload-igvf-files',
+            'UploadAscellaFilesPolicy',
+            managed_policy_name='upload-ascella-files',
             statements=[
-                self.upload_igvf_files_policy_statement,
+                self.upload_ascella_files_policy_statement,
                 self.federated_token_policy_statement,
             ],
         )
 
-        self.upload_igvf_files_user = User(
+        self.upload_ascella_files_user = User(
             self,
-            'UploadIgvfFilesUser',
-            user_name='upload-igvf-files',
+            'UploadAscellaFilesUser',
+            user_name='upload-ascella-files',
             managed_policies=[
-                self.upload_igvf_files_policy,
+                self.upload_ascella_files_policy,
             ]
         )
 
-        self.upload_igvf_files_user_access_key = AccessKey(
+        self.upload_ascella_files_user_access_key = AccessKey(
             self,
-            'UploadIgvfFilesUserAccessKey',
-            user=self.upload_igvf_files_user,
+            'UploadAscellaFilesUserAccessKey',
+            user=self.upload_ascella_files_user,
         )
 
-        self.upload_igvf_files_user_access_key_secret = Secret(
+        self.upload_ascella_files_user_access_key_secret = Secret(
             self,
-            'UploadIgvfFilesUserAccessKeySecret',
-            secret_name='upload-igvf-files-user-access-key-secret',
+            'UploadAscellaFilesUserAccessKeySecret',
+            secret_name='upload-ascella-files-user-access-key-secret',
             secret_object_value={
                 'ACCESS_KEY': SecretValue.unsafe_plain_text(
-                    self.upload_igvf_files_user_access_key.access_key_id,
+                    self.upload_ascella_files_user_access_key.access_key_id,
                 ),
-                'SECRET_ACCESS_KEY': self.upload_igvf_files_user_access_key.secret_access_key,
+                'SECRET_ACCESS_KEY': self.upload_ascella_files_user_access_key.secret_access_key,
             },
         )

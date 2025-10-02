@@ -3,8 +3,8 @@ from aws_cdk import Environment
 
 from waf.config import config
 
-from waf.constants import IGVF_UI_DEMO_WAF_PREFIX
-from waf.constants import IGVF_API_DEMO_WAF_PREFIX
+from waf.constants import ASCELLA_UI_DEMO_WAF_PREFIX
+from waf.constants import ASCELLA_API_DEMO_WAF_PREFIX
 
 from waf.acl import WAF
 from waf.acl import WAFProps
@@ -19,12 +19,12 @@ ENVIRONMENT = Environment(
 
 app = App()
 
-demo_waf_igvf_ui = WAF(
+demo_waf_ascella_ui = WAF(
     app,
-    IGVF_UI_DEMO_WAF_PREFIX,
+    ASCELLA_UI_DEMO_WAF_PREFIX,
     props=WAFProps(
-        rules=get_rules(IGVF_UI_DEMO_WAF_PREFIX),
-        prefix=IGVF_UI_DEMO_WAF_PREFIX,
+        rules=get_rules(ASCELLA_UI_DEMO_WAF_PREFIX),
+        prefix=ASCELLA_UI_DEMO_WAF_PREFIX,
         ips_to_allow=[
             # e.g. '98.35.33.121/32',
         ],
@@ -36,12 +36,12 @@ demo_waf_igvf_ui = WAF(
     termination_protection=True,
 )
 
-demo_waf_igvf_api = WAF(
+demo_waf_ascella_api = WAF(
     app,
-    IGVF_API_DEMO_WAF_PREFIX,
+    ASCELLA_API_DEMO_WAF_PREFIX,
     props=WAFProps(
-        rules=get_rules(IGVF_API_DEMO_WAF_PREFIX),
-        prefix=IGVF_API_DEMO_WAF_PREFIX,
+        rules=get_rules(ASCELLA_API_DEMO_WAF_PREFIX),
+        prefix=ASCELLA_API_DEMO_WAF_PREFIX,
         ips_to_allow=[
             # e.g. '98.35.33.121/32',
         ],

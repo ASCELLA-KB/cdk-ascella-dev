@@ -1,7 +1,7 @@
 import pytest
 import aws_cdk as cdk
 import json
-from cdk_igvf_dev.notification_stack import NotificationStack
+from cdk_ascella_dev.notification_stack import NotificationStack
 
 from aws_cdk.assertions import Template
 

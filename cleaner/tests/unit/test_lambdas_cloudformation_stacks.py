@@ -20,9 +20,9 @@ def aws_credentials():
 def raw_stacks():
     return [
         {
-            'StackId': 'arn:aws:cloudformation:us-west-2:109189702753:stack/igvf-ui-IGVF-246-remove-uuid-as-unique-key-for-treatments-DeployDevelopment-FrontendStack/c1f10110-27e3-11ed-b366-0add85ad3a49',
+            'StackId': 'arn:aws:cloudformation:us-west-2:116837888204:stack/igvf-ui-IGVF-246-remove-uuid-as-unique-key-for-treatments-DeployDevelopment-FrontendStack/c1f10110-27e3-11ed-b366-0add85ad3a49',
             'StackName': 'igvf-ui-IGVF-246-remove-uuid-as-unique-key-for-treatments-DeployDevelopment-FrontendStack',
-            'ChangeSetId': 'arn:aws:cloudformation:us-west-2:109189702753:changeSet/PipelineChange/a70c18f4-7e13-4b25-87d0-1084ad6c0db7',
+            'ChangeSetId': 'arn:aws:cloudformation:us-west-2:116837888204:changeSet/PipelineChange/a70c18f4-7e13-4b25-87d0-1084ad6c0db7',
             'Parameters': [
                 {
                     'ParameterKey': 'BootstrapVersion',
@@ -41,7 +41,7 @@ def raw_stacks():
                 'CAPABILITY_AUTO_EXPAND'
             ],
             'Outputs': [],
-            'RoleARN': 'arn:aws:iam::109189702753:role/cdk-hnb659fds-cfn-exec-role-109189702753-us-west-2',
+            'RoleARN': 'arn:aws:iam::116837888204:role/cdk-hnb659fds-cfn-exec-role-116837888204-us-west-2',
             'Tags': [
                 {
                     'Key': 'environment',
@@ -314,7 +314,7 @@ def raw_stacks():
                 'CAPABILITY_NAMED_IAM',
                 'CAPABILITY_AUTO_EXPAND'
             ],
-            'RoleARN': 'arn:aws:iam::109189702753:role/cdk-hnb659fds-cfn-exec-role-109189702753-us-west-2',
+            'RoleARN': 'arn:aws:iam::116837888204:role/cdk-hnb659fds-cfn-exec-role-116837888204-us-west-2',
             'Tags': [
                 {
                     'Key': 'environment',
@@ -355,7 +355,7 @@ def raw_stacks():
                 'CAPABILITY_AUTO_EXPAND'
             ],
             'Outputs': [],
-            'RoleARN': 'arn:aws:iam::109189702753:role/cdk-hnb659fds-cfn-exec-role-109189702753-us-west-2',
+            'RoleARN': 'arn:aws:iam::116837888204:role/cdk-hnb659fds-cfn-exec-role-116837888204-us-west-2',
             'Tags': [
                 {
                     'Key': 'environment',
@@ -396,7 +396,7 @@ def raw_stacks():
                 'CAPABILITY_NAMED_IAM',
                 'CAPABILITY_AUTO_EXPAND'
             ],
-            'RoleARN': 'arn:aws:iam::109189702753:role/cdk-hnb659fds-cfn-exec-role-109189702753-us-west-2',
+            'RoleARN': 'arn:aws:iam::116837888204:role/cdk-hnb659fds-cfn-exec-role-116837888204-us-west-2',
             'Tags': [
                 {
                     'Key': 'environment',
@@ -437,7 +437,7 @@ def raw_stacks():
                 'CAPABILITY_AUTO_EXPAND'
             ],
             'Outputs': [],
-            'RoleARN': 'arn:aws:iam::109189702753:role/cdk-hnb659fds-cfn-exec-role-109189702753-us-west-2',
+            'RoleARN': 'arn:aws:iam::116837888204:role/cdk-hnb659fds-cfn-exec-role-116837888204-us-west-2',
             'Tags': [
                 {
                     'Key': 'environment',
@@ -479,7 +479,7 @@ def raw_stacks():
             ],
             'Outputs': [
             ],
-            'RoleARN': 'arn:aws:iam::109189702753:role/cdk-hnb659fds-cfn-exec-role-109189702753-us-west-2',
+            'RoleARN': 'arn:aws:iam::116837888204:role/cdk-hnb659fds-cfn-exec-role-116837888204-us-west-2',
             'Tags': [
                 {
                     'Key': 'environment',

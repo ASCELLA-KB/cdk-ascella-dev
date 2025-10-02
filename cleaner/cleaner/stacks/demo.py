@@ -45,7 +45,7 @@ class DemoCleaner(Stack):
         delete_branch_webhook_secret = Secret.from_secret_complete_arn(
             self,
             'DeleteBranchWebhookSecret',
-            secret_complete_arn='arn:aws:secretsmanager:us-west-2:109189702753:secret:github-webhook-secret-hz6JXf',
+            secret_complete_arn='arn:aws:secretsmanager:us-west-2:116837888204:secret:github-webhook-secret-hz6JXf',
         )
 
         delete_branch_dead_letter_queue = Queue(
@@ -99,7 +99,7 @@ class DemoCleaner(Stack):
             'MakeSuccessMessage',
             parameters={
                 'detailType': 'StackDeleteCompleted',
-                'source': 'cdk-igvf-dev.cleaner.DemoCleaner',
+                'source': 'cdk-ascella-dev.cleaner.DemoCleaner',
                 'detail': {
                     'metadata': {
                         'includes_slack_notification': True
@@ -121,7 +121,7 @@ class DemoCleaner(Stack):
             'MakeFailureMessage',
             parameters={
                 'detailType': 'StackDeleteFailed',
-                'source': 'cdk-igvf-dev.cleaner.DemoCleaner.',
+                'source': 'cdk-ascella-dev.cleaner.DemoCleaner.',
                 'detail': {
                     'metadata': {
                         'includes_slack_notification': True

@@ -78,7 +78,7 @@
                         "QUEUE_URL": {
                             "Ref": "DeleteBranchQueue51E8FA93"
                         },
-                        "SECRET_ARN": "arn:aws:secretsmanager:us-west-2:109189702753:secret:github-webhook-secret-hz6JXf"
+                        "SECRET_ARN": "arn:aws:secretsmanager:us-west-2:116837888204:secret:github-webhook-secret-hz6JXf"
                     }
                 },
                 "Handler": "index.handler",
@@ -147,7 +147,7 @@
                                 "secretsmanager:DescribeSecret"
                             ],
                             "Effect": "Allow",
-                            "Resource": "arn:aws:secretsmanager:us-west-2:109189702753:secret:github-webhook-secret-hz6JXf"
+                            "Resource": "arn:aws:secretsmanager:us-west-2:116837888204:secret:github-webhook-secret-hz6JXf"
                         },
                         {
                             "Action": [

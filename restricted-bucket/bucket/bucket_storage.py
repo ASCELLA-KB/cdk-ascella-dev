@@ -21,7 +21,7 @@ from typing import Any
 from typing import List
 
 
-RESTRICTED_FILES_BUCKET_NAME = 'igvf-restricted-files-dev'
+RESTRICTED_FILES_BUCKET_NAME = 'ascella-restricted-files-dev'
 
 
 BROWSER_UPLOAD_CORS = CorsRule(

@@ -29,7 +29,7 @@ class RestrictedBucketAccessPolicies(Stack):
 
         self.bucket_storage = bucket_storage
 
-        self.download_igvf_restricted_files_policy_statement = PolicyStatement(
+        self.download_ascella_restricted_files_policy_statement = PolicyStatement(
             sid='AllowReadFromRestrictedFilesBucket',
             resources=[
                 self.bucket_storage.restricted_files_bucket.bucket_arn,
@@ -45,7 +45,7 @@ class RestrictedBucketAccessPolicies(Stack):
             ]
         )
 
-        self.upload_igvf_restricted_files_policy_statement = PolicyStatement(
+        self.upload_ascella_restricted_files_policy_statement = PolicyStatement(
             sid='AllowReadAndWriteToRestrictedFilesBucket',
             resources=[
                 self.bucket_storage.restricted_files_bucket.bucket_arn,
@@ -73,48 +73,48 @@ class RestrictedBucketAccessPolicies(Stack):
             ]
         )
 
-        self.download_igvf_restricted_files_policy = ManagedPolicy(
+        self.download_ascella_restricted_files_policy = ManagedPolicy(
             self,
-            'DownloadIgvfRestrictedFilesPolicy',
-            managed_policy_name='download-igvf-restricted-files',
+            'DownloadAscellaRestrictedFilesPolicy',
+            managed_policy_name='download-ascella-restricted-files',
             statements=[
-                self.download_igvf_restricted_files_policy_statement,
+                self.download_ascella_restricted_files_policy_statement,
             ],
         )
 
-        self.upload_igvf_restricted_files_policy = ManagedPolicy(
+        self.upload_ascella_restricted_files_policy = ManagedPolicy(
             self,
-            'UploadIgvfRestrictedFilesPolicy',
-            managed_policy_name='upload-igvf-restricted-files',
+            'UploadAscellaRestrictedFilesPolicy',
+            managed_policy_name='upload-ascella-restricted-files',
             statements=[
-                self.upload_igvf_restricted_files_policy_statement,
+                self.upload_ascella_restricted_files_policy_statement,
                 self.restricted_federated_token_policy_statement,
             ],
         )
 
-        self.upload_igvf_restricted_files_user = User(
+        self.upload_ascella_restricted_files_user = User(
             self,
-            'UploadIgvfRestrictedFilesUser',
-            user_name='upload-igvf-restricted-files',
+            'UploadAscellaRestrictedFilesUser',
+            user_name='upload-ascella-restricted-files',
             managed_policies=[
-                self.upload_igvf_restricted_files_policy,
+                self.upload_ascella_restricted_files_policy,
             ]
         )
 
-        self.upload_igvf_restricted_files_user_access_key = AccessKey(
+        self.upload_ascella_restricted_files_user_access_key = AccessKey(
             self,
-            'UploadIgvfRestrictedFilesUserAccessKey',
-            user=self.upload_igvf_restricted_files_user,
+            'UploadAscellaRestrictedFilesUserAccessKey',
+            user=self.upload_ascella_restricted_files_user,
         )
 
-        self.upload_igvf_restricted_files_user_access_key_secret = Secret(
+        self.upload_ascella_restricted_files_user_access_key_secret = Secret(
             self,
-            'UploadIgvfRestrictedFilesUserAccessKeySecret',
-            secret_name='upload-igvf-restricted_files-user-access-key-secret',
+            'UploadAscellaRestrictedFilesUserAccessKeySecret',
+            secret_name='upload-ascella-restricted_files-user-access-key-secret',
             secret_object_value={
                 'ACCESS_KEY': SecretValue.unsafe_plain_text(
-                    self.upload_igvf_restricted_files_user_access_key.access_key_id,
+                    self.upload_ascella_restricted_files_user_access_key.access_key_id,
                 ),
-                'SECRET_ACCESS_KEY': self.upload_igvf_restricted_files_user_access_key.secret_access_key,
+                'SECRET_ACCESS_KEY': self.upload_ascella_restricted_files_user_access_key.secret_access_key,
             },
         )

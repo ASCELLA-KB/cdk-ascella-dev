@@ -3,8 +3,8 @@ import os
 
 import aws_cdk as cdk
 
-from cdk_igvf_dev.notification_stack import NotificationStack
-from cdk_igvf_dev.config import config
+from cdk_ascella_dev.notification_stack import NotificationStack
+from cdk_ascella_dev.config import config
 
 
 ENVIRONMENT = cdk.Environment(

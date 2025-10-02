@@ -25,12 +25,12 @@ from typing import Any
 from typing import List
 
 
-BLOBS_BUCKET_NAME = 'igvf-blobs-dev'
-FILES_BUCKET_NAME = 'igvf-files-dev'
-PUBLIC_FILES_BUCKET_NAME = 'igvf-public-dev'
-PRIVATE_FILES_BUCKET_NAME = 'igvf-private-dev'
+BLOBS_BUCKET_NAME = 'ascella-blobs-dev'
+FILES_BUCKET_NAME = 'ascella-files-dev'
+PUBLIC_FILES_BUCKET_NAME = 'ascella-public-dev'
+PRIVATE_FILES_BUCKET_NAME = 'ascella-private-dev'
 
-IGVF_TRANSFER_USER_ARN = 'arn:aws:iam::407227577691:user/igvf-files-transfer'
+ASCELLA_TRANSFER_USER_ARN = 'arn:aws:iam::407227577691:user/ascella-files-transfer'
 
 INTELLIGENT_TIERING_RULE = LifecycleRule(
     id='move-all-objects-to-intelligent-tiering',
@@ -305,15 +305,15 @@ class BucketStorage(Stack):
             self.public_files_bucket_policy_statement,
         )
 
-        self.igvf_transfer_user_principal = ArnPrincipal(
-            IGVF_TRANSFER_USER_ARN
+        self.ascella_transfer_user_principal = ArnPrincipal(
+            ASCELLA_TRANSFER_USER_ARN
         )
 
         self.public_files_bucket.add_to_resource_policy(
             generate_file_transfer_user_write_policy_for_bucket(
-                sid='AllowIgvfTransferUserWritePublicBucket',
+                sid='AllowAscellaTransferUserWritePublicBucket',
                 principals=[
-                    self.igvf_transfer_user_principal,
+                    self.ascella_transfer_user_principal,
                 ],
                 resources=[
                     self.public_files_bucket.bucket_arn,
@@ -324,9 +324,9 @@ class BucketStorage(Stack):
 
         self.private_files_bucket.add_to_resource_policy(
             generate_file_transfer_user_write_policy_for_bucket(
-                sid='AllowIgvfTransferUserWritePrivateBucket',
+                sid='AllowAscellaTransferUserWritePrivateBucket',
                 principals=[
-                    self.igvf_transfer_user_principal,
+                    self.ascella_transfer_user_principal,
                 ],
                 resources=[
                     self.private_files_bucket.bucket_arn,
@@ -335,10 +335,10 @@ class BucketStorage(Stack):
             )
         )
 
-        self.igvf_transfer_user_upload_bucket_policy_statement = PolicyStatement(
-            sid='AllowIgvfTransferUserReadFromUploadBucket',
+        self.ascella_transfer_user_upload_bucket_policy_statement = PolicyStatement(
+            sid='AllowAscellaTransferUserReadFromUploadBucket',
             principals=[
-                self.igvf_transfer_user_principal
+                self.ascella_transfer_user_principal
             ],
             resources=[
                 self.files_bucket.bucket_arn,
@@ -356,5 +356,5 @@ class BucketStorage(Stack):
         )
 
         self.files_bucket.add_to_resource_policy(
-            self.igvf_transfer_user_upload_bucket_policy_statement,
+            self.ascella_transfer_user_upload_bucket_policy_statement,
         )

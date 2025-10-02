@@ -1,7 +1,7 @@
 from typing import List, Dict, Any
 
-from waf.constants import IGVF_UI_DEMO_WAF_PREFIX
-from waf.constants import IGVF_API_DEMO_WAF_PREFIX
+from waf.constants import ASCELLA_UI_DEMO_WAF_PREFIX
+from waf.constants import ASCELLA_API_DEMO_WAF_PREFIX
 
 
 def add_prefix_to_visibility_config_metric_config(rule: Dict[str, Any], prefix: str) -> Dict[str, Any]:
@@ -16,7 +16,7 @@ def reset_priority(rule: Dict[str, Any], idx: int) -> Dict[str, Any]:
 
 
 RULES = {
-    IGVF_UI_DEMO_WAF_PREFIX: [
+    ASCELLA_UI_DEMO_WAF_PREFIX: [
         {
             "Name": "throttle-requests",
             "Priority": 100,
@@ -207,7 +207,7 @@ RULES = {
             }
         }
     ],
-    IGVF_API_DEMO_WAF_PREFIX: [
+    ASCELLA_API_DEMO_WAF_PREFIX: [
         {
             "Name": "AWS-AWSManagedRulesAmazonIpReputationList",
             "Priority": 0,

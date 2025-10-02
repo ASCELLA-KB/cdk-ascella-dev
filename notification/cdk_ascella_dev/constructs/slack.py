@@ -41,7 +41,7 @@ class SlackWebhook(Construct):
         endpoint = StringParameter.from_string_parameter_name(
             self,
             'SlackWebhookUrl',
-            string_parameter_name='SLACK_WEBHOOK_URL_FOR_AWS_IGVF_DEV_CHANNEL'
+            string_parameter_name='SLACK_WEBHOOK_URL_FOR_AWS_ASCELLA_DEV_CHANNEL'
         )
         api_destination = ApiDestination(
             self,

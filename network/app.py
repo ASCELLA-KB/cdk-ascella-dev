@@ -3,8 +3,8 @@ import os
 
 import aws_cdk as cdk
 
-from cdk_igvf_dev.network_stack import NetworkStack
-from cdk_igvf_dev.config import config
+from cdk_ascella_dev.network_stack import NetworkStack
+from cdk_ascella_dev.config import config
 
 
 ENVIRONMENT = cdk.Environment(
